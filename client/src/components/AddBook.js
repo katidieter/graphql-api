@@ -1,38 +1,31 @@
 import React from 'react';
-import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
+import {getAuthorsQuery} from '../queries/queries.js';
 
-const getAuthorQuery = gql`
-  {
-    authors {
-      name
-      id
-    }
-  }
-`
-
-function AddBook({ data: { authors, loading } }) {
+function AddBook({ data: { authors } }) {
   return (
     <form id="add-book">
       <div class="field">
         <label>Book name:</label>
-        <input type="text"/>
+        <input type="text" />
       </div>
 
       <div class="field">
         <label>Genre:</label>
-        <input type="text"/>
+        <input type="text" />
       </div>
 
       <div class="field">
         <label>Author:</label>
         <select>
-          <option>Select auhtor</option>
+            <option>Select an author</option>
+          {(authors || []).map(({ id, name }) => (
+            <option key={id} value={id}>{name}</option>
+          ))}
         </select>
       </div>
-      
       <button>+</button>
     </form>
   );
 }
-export default graphql(getAuthorQuery)(AddBook);
+export default graphql(getAuthorsQuery)(AddBook);
