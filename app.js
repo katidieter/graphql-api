@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 mongoose
-  .connect("mongodb://localhost/gql-ninja", {useUnifiedTopology: true})
+  .connect("mongodb://localhost/gql-ninja", { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
