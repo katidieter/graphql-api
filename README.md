@@ -43,11 +43,6 @@ Run the server localy
 yarn serve
 ```
 
-## Running the tests
-
-WORK IN PROGRESS
-
-
 ## Authors
 
 * **Katieli Bianca Dieter** - *Initial work* - [KatieliDieter](https://github.com/katidieter)
